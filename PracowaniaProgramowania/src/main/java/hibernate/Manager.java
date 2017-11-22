@@ -6,16 +6,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-/**
- * Created by jn on 2017-11-19.
- */
+
 public class Manager {
 
     public static void main(String[] args) {
 
         System.out.println("Start");
 
-        EntityManager entityManager = null;
+        EntityManager entityManager;
 
         EntityManagerFactory entityManagerFactory = null;
 
@@ -36,8 +34,8 @@ public class Manager {
             comp.setDate_Of_Birth("20-10-1996");
 
             entityManager.persist(comp);
-            entityManager.remove(comp);
             entityManager.getTransaction().commit();
+            System.out.println(comp.GetId() + " " + comp.GetFirst_Name());
             System.out.println("Done");
 
             entityManager.close();

@@ -1,9 +1,7 @@
 package hibernate.model;
 
 import javax.persistence.*;
-/**
- * Created by jn on 2017-11-19.
- */
+
 
 @Entity
 @Table(name = "Competitors", uniqueConstraints = {
@@ -74,4 +72,9 @@ public class Competitors {
     public void setDate_Of_Birth(String date_of_birth){
         this.Date_Of_Birth=date_of_birth;
     }
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="Round_ID", referencedColumnName = "id")
+    Round round;
+
 }
